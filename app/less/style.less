@@ -1,0 +1,146 @@
+/*!
+ *  Name: Tapass Switch Task
+ *  Author: Mart van de Ven
+ */
+
+@import 'bootstrap/bootstrap.less';
+@import 'bootstrap/responsive.less';
+
+/*!
+ * Temp Hacks
+ */
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin:0 30px;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+	font-weight: 700;
+	font-size: 16px;
+	margin-top: -4px;
+	margin-bottom: 10px;
+}
+
+/*!
+ * Custom css
+ */
+body {
+	font-family: 'courier new', monospace;
+	font-size: 20px;
+}
+
+article {
+	display: none;
+	margin: 0 auto;
+	width: 600px;
+}
+
+#hints-keys{
+	display: none;
+}
+
+div.container{
+	margin-top: 20px !important
+}
+
+table{
+	margin: 0 auto;
+}
+
+table td {
+	text-align: center;
+	border:1px solid black;
+}
+// Trial Quadrants
+
+table.box-fields {
+	margin-bottom: 15px;
+}
+
+table.box-fields td {
+	height: 150px;
+	width: 150px;
+	border: 3px solid black;
+	font-size: 72px;
+}
+
+// Example Trial Quadrants
+
+table.box-fields-examples{
+	margin: 15px auto;
+}
+
+.pull-left table.box-fields-examples{
+	margin: 30px 0px;
+}
+
+table.box-fields-examples td{
+	height: 100px;
+	width: 100px;
+}
+
+// Hints, Notices and Aids
+
+#notice{
+	text-align: center;
+	font-size: 22px;
+}
+
+#hints-task {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.aid-task{
+	float: left;
+	width: 150px;
+}
+
+#notice {
+	height: 30px;
+	font-weight: 700;
+}
+
+#hints-keys,
+#hints-task {
+	text-align: center;
+}
+
+#aid-task-left.aid-vertical{
+	text-align: left;
+	position: relative;
+	margin-top: -250px;
+	padding-left: 330px;
+}
+
+#aid-task-right.aid-vertical{
+	text-align: left;
+	position: relative;
+	margin-top: -100px;
+	padding-left: 330px;
+}
+
+#hints-keys{
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-size: 22px;
+}
+.aid-keys {
+	float: left;
+	width: 400px;
+}
+
+code, pre {
+	font-size: 20px;
+	padding: 0 4px;
+	background: none;
+	border: 0;
+}
+
+/*!
+ * Create responsive square
+ */
+

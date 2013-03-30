@@ -404,9 +404,10 @@ function populateScore(){
     if (mval > 97) { msg = speedAdvice } 
     else if (mval > 93) { msg = correctAdvice } 
     else { msg = accuracyAdvice }
-    $('.' + slideOrder[slideCounter] + ' .validityPracticeResult').html(mval.toFixed(0))
-    $('.' + slideOrder[slideCounter] + ' .responseTimePracticeResult').html(mrt.toFixed(0))
-    $('.' + slideOrder[slideCounter] + ' .advicePracticeResult').html(msg)
+    $('.' + slideOrder[slideCounter] + ' .validityAbsoluteResult').html(val.toFixed(0))
+    $('.' + slideOrder[slideCounter] + ' .validityRelativeResult').html(mval.toFixed(0))
+    $('.' + slideOrder[slideCounter] + ' .responseTimeResult').html(mrt.toFixed(0))
+    $('.' + slideOrder[slideCounter] + ' .adviceResult').html(msg)
 }
 
 function completeBlock(){

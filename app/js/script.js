@@ -455,7 +455,7 @@ function getResponse(i, stimuli, position){
 				}
 			}, stimuliTimeOut)
 		$(document.body).attr('tabIndex', 1).bind('keydown', function(event) {
-		  	if (event.keyCode == '188') { // , | right
+		  	if (event.keyCode == '78') { // N | right
 		    	event.preventDefault()
 	    		responseTime = new Date().getTime() - start
 				userData['data'].push
@@ -475,7 +475,7 @@ function getResponse(i, stimuli, position){
 						responseFeedback(i)
 					}
 				}
-		   	} else if (event.keyCode == '88') { // x | left
+		   	} else if (event.keyCode == '86') { // V | left
 		    	event.preventDefault();
 	    		responseTime = new Date().getTime() - start
 	    		userData['data'].push(
@@ -510,7 +510,7 @@ function getResponse(i, stimuli, position){
 				}
 			}, stimuliTimeOut)
 	    $(document.body).attr('tabIndex', 1).bind('keydown', function(event) {
-		  	if (event.keyCode == '188') { // , | right
+		  	if (event.keyCode == '78') { // N | right
 		    	event.preventDefault()
 	    		responseTime = new Date().getTime() - start
 				userData['data'].push(
@@ -524,7 +524,7 @@ function getResponse(i, stimuli, position){
 				} else{
 					responseFeedback(i)
 				}
-		   	} else if (event.keyCode == '88') { // x | left
+		   	} else if (event.keyCode == '86') { // V | left
 		    	event.preventDefault();
 	    		responseTime = new Date().getTime() - start
 	    		userData['data'].push(

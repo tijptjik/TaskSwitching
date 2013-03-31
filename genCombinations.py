@@ -2,30 +2,42 @@ from random import choice, shuffle
 
 ''' Generate Stimuli Sequences
 
-Letters : ['E','A','U','I','N','T','R','D']
-Numbers : ['2','3','4','5','6','7','8','9']
+Generate a sequence of stimuli to be used in a task switching study. The stimuli
+consist of two characters which each may be subjected to their respective
+classification challanges. In this case the challanges are to determine whether
+the 1st character is a capitalised or not, and whether the 2nd character is 
+smaller or greater than 5.
 
-Conditions: 
+The following characters are used:
+
+Letters : ['e','d','h','t','R','B','A','F']
+Numbers : ['1','2','3','4','6','7','8','9']
+
+As '>5' and 'captialized' as well as '<5' and 'non-capitalized' are mapped to 
+the same response key, there are certain stimuli combinations which are 
+congurent, that is to say where both characters have the same correct response,
+and incongruent stimuli, where the correct response for the characters is 
+different.
 
 Congruent are combinations of
-	2,4,6,8 & N, T, R, D
-	        or
-    3,5,7,9 & E, A, I, U
+	
+   e, d, h, t  &  1, 2, 3, 4
+	           or
+   R, B, A, F  &  6, 7, 8, 9
 
 Incongruent are combinations of
-	3,5,7,9 & N, T, R, D
-	        or
-    2,4,6,8 & E, A, I, U
 
-    U2 D3 N2
+   e, d, h, t  &  6, 7, 8, 9
+	           or
+   R, B, A, F  &  1, 2, 3, 4
 
-Restrictions: 
+In order to fulfil study requirements, the following restrictions are places 
+upon the generation of stimuli:
 
 1. Provide an equal amount of congruent & incongruent combinations
 2. The same character may not appear on two successive trials
-3. The same response (i.e., consonant, vowel, odd, or even) may not appear on more than 3 successive trials.
-
-Stimuli komen in sets van 2 watbetreft fede cijfer of nummer focus.  houdt daar rekening mee!
+3. The same response (i.e., capitalized, non-capitalized, <5, or >5) may not 
+   appear on more than 4 successive trials.
 
 '''
 def genStims(n):
@@ -37,8 +49,10 @@ def genStims(n):
 	build(sequence, n)
 
 def new(congruent, vowel):
-	raw = [[[['N','T','R','D'],[3,5,7,9]],[['E','A','I','U'],[2,4,6,8]]],[[['N','T','R','D'],[2,4,6,8]],[['E','A','I','U'],[3,5,7,9]]]]
-	return choice(raw[congruent][vowel][0]) + str(choice(raw[congruent][vowel][1]));
+	raw = [[[['N','T','R','D'],[3,5,7,9]],[['E','A','I','U'],[2,4,6,8]]],\
+		  [[['N','T','R','D'],[2,4,6,8]],[['E','A','I','U'],[3,5,7,9]]]]
+	return choice(raw[congruent][vowel][0]) + \
+		   str(choice(raw[congruent][vowel][1]));
 
 def build(s, n):
 	shuffle(s)
@@ -59,7 +73,8 @@ def build(s, n):
 	testSanity(p, n)
 
 def chomp(p):
-	bites = [[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3],[4],[1,4],[2,4],[3,4],[1,2,4],[2,3,4],[1,2,3,4]]
+	bites = [[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3],[4],\
+			[1,4],[2,4],[3,4],[1,2,4],[2,3,4],[1,2,3,4]]
 	for i in range(len(p)-3):
 		if isStreak(p[len(p)-4-i:len(p)-i]):
 			for bite in bites:
@@ -74,7 +89,8 @@ def isStreak(s):
 	b = isTypeSet(s[2][0],s[3][0])
 	c = isTypeSet(s[0][1],s[1][1])
 	d = isTypeSet(s[2][1],s[3][1])
-	if (a % 2 and a == b) or (a % 2 and a == d) or (c % 2 and c == b) or (c % 2 and c == d):
+	if (a % 2 and a == b) or (a % 2 and a == d) or \
+	   (c % 2 and c == b) or (c % 2 and c == d):
 		return 1
 	# elif isLeft(s[0][0]) == isLeft(s[1][1]) == isLeft(s[2][1]) == isLeft(s[3][0]):
 		# print s
@@ -126,7 +142,8 @@ def testSanity(p, n):
 	for i  in range(3, len(p)) :
 		if isStreak(p[i-3:i+1]):
 			sanity = False 
-			print 'ERROR TYPE 3:', p[i-4], p[i-3], p[i-2], p[i-1], p[i], 'RESPONSE STREAK', 'type', str(isStreak(p[i-3:i+1])), 'at', str(i)
+			print 'ERROR TYPE 3:', p[i-4], p[i-3], p[i-2], p[i-1], p[i], \
+			  'RESPONSE STREAK', 'type', str(isStreak(p[i-3:i+1])), 'at', str(i)
 	if sanity:	
 		print p
 	# else:

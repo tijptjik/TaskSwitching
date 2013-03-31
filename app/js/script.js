@@ -39,7 +39,7 @@ var alphanumeric = [['t9', 'd4', 'F8', 'R2', 'A4', 'h8', 'B6', 't8', 'd2', 'A9',
         'R' : 58,
         'B' : 58,
         'A' : 58,
-        'F' : 26,
+        'F' : 58,
         'e' : 77,
         'd' : 58,
         'h' : 58,
@@ -60,7 +60,7 @@ var baseTime = new Date(),
  	trueTrialTime = 50,
     falseStimuliIntervalBaseTime = 0,
     falseTrialTime = 0,
-	newTrialTime = 1000, // 1900
+	newTrialTime = 1900, // 1900
 	focusTime = 100,
 	stimuliTimeOut = 5000, // 5000
 	StimuliIntervalBaseTime = 200,

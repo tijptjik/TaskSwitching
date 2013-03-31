@@ -1,6 +1,10 @@
 from random import choice, shuffle
 
-''' Generate Stimuli Sequences
+""" Generate Stimuli Sequences
+
+Run with:
+
+	python genCombinations.py
 
 Generate a sequence of stimuli to be used in a task switching study. The stimuli
 consist of two characters which each may be subjected to their respective
@@ -39,22 +43,43 @@ upon the generation of stimuli:
 3. The same response (i.e., capitalized, non-capitalized, <5, or >5) may not 
    appear on more than 4 successive trials.
 
-'''
+"""
+
+CAP = ['R','B','A','F']
+NCP = ['e','d','h','t']
+LT5 = ['1','2','3','4']
+GT5 = ['6','7','8','9']
+
 def genStims(n):
+	""" Generate an equal number of congruent and incongruent stimuli."""
 	stimSets = [[[],[]],[[],[]]]
 	for i in range(4):
 		while (len(stimSets[i % 2][(i/2) % 2]) * 4 < n):
-			stimSets[i % 2][(i/2) % 2].append(new(i % 2, (i/2) % 2))
+			stimSets[i % 2][(i/2) % 2].append(newStim(i % 2, (i/2) % 2))
 	sequence = stimSets[0][0] + stimSets[0][1] + stimSets[1][0] + stimSets[1][1]
-	build(sequence, n)
+	shuffleSeq(sequence, n)
 
-def new(congruent, vowel):
-	raw = [[[['N','T','R','D'],[3,5,7,9]],[['E','A','I','U'],[2,4,6,8]]],\
-		  [[['N','T','R','D'],[2,4,6,8]],[['E','A','I','U'],[3,5,7,9]]]]
-	return choice(raw[congruent][vowel][0]) + \
-		   str(choice(raw[congruent][vowel][1]));
+def newStim(congruent, capitalized):
+	""" Return a random stimuli abiding by the type constraints."""
+	raw = [[[NCP,GT5],CAP,LT5]], [[NCP,LT5],[CAP,GT5]]]
+	return choice(raw[congruent][capitalized][0]) + \
+		   str(choice(raw[congruent][capitalized][1]));
 
-def build(s, n):
+def shuffleSeq(s, n):
+	""" Randomise a given sequence of character pairs in which no character
+	pair repeats a character from the previous pair, and in which no sequence
+	of character pairs results in warranting the same response to the 
+	classification challange. 
+
+	In other words, no four stimuli should contain challanges for which 
+		
+		'>5' and 'captialized' 
+				  or 
+		'<5' and 'non-capitalized' 
+
+	are the appropriate responses.
+	
+	"""
 	shuffle(s)
 	p = [s.pop()]
 	for x in s:
@@ -72,19 +97,8 @@ def build(s, n):
 					print 'ERROR 3', p[-7:-3]
 	testSanity(p, n)
 
-def chomp(p):
-	bites = [[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3],[4],\
-			[1,4],[2,4],[3,4],[1,2,4],[2,3,4],[1,2,3,4]]
-	for i in range(len(p)-3):
-		if isStreak(p[len(p)-4-i:len(p)-i]):
-			for bite in bites:
-				for b in bite:
-					p[-b] = ret(p,b)
-				if not isStreak(p[len(p)-4-i:len(p)-i]):
-					break
-	return p
-
 def isStreak(s):
+	""" Test whether the 4 provided stimuli form a streak of the same response"""
 	a = isTypeSet(s[0][0],s[1][0])
 	b = isTypeSet(s[2][0],s[3][0])
 	c = isTypeSet(s[0][1],s[1][1])
@@ -101,36 +115,48 @@ def isStreak(s):
 	return 0
 
 def isTypeSet(a,b):
+	""" Return the typeset number of the stimuli"""
 	return [[3,2],[0,1]][isLeft(a)][isLeft(b)]
 
 def isLeft(s):
-	return (1 if s in 'NTRD2468' else 0)
+	""" Return 1 if 'left' is the correct response for the stimuli"""
+	return (1 if s in NCP + LT5 else 0)
 
 def sim(s, p, r='Q0'):
-	x, y, = s[0], s[1]
+	"""Two subsequent stimuli have characters in common. Generate and return a 
+	stimuli for which this is not the case.
+
+	"""
+	x, y = s[0], s[1]
 	while x == p[0] or x == r[0]:
-		x = choice([['N','T','R','D'],['E','A','I','U']][isVowel(s[0])])
+		x = choice([NCP,CAP][isCaps(s[0])])
 	while y == p[1] or x == r[1]:
-		y = choice([['3','5','7','9'],['2','4','6','8']][isOdd(s[1])])
+		y = choice([GT5,LT5][isGT5(s[1])])
 	return x + y
 
-def ret(p,n):
-	try:
-		x = sim(flip(p[-n]),p[-1-n],p[-n+1])
-	except IndexError:
-		x = sim(flip(p[-n]),p[-1-n])
-	return x
-
 def flip(s):
-	return new(int(isVowel(s[0])==isOdd(s[1])),int(isVowel(s[0])==0))
+	""" Change stimuli into a combination that abides by the type constrains, but
+	does not require the same response, thereby upholding the first constraint, 
+	without sacrificing the third."""
+	return newStim(int(isCaps(s[0])==isGT5(s[1])),int(isCaps(s[0])==0))
 	
-def isVowel(s):
-	return (1 if s in "AEIU" else 0)
+def isCaps(s):
+	""" Return 1 if character is capitalized"""
+	return (1 if s in "RBAF" else 0)
 
-def isOdd(s):
-	return (1 if s in "3579" else 0)
+def isGT5(s):
+	""" Return 1 if character is greater than five"""
+	return (1 if s in "6789" else 0)
 
 def testSanity(p, n):
+	""" Testing that both implicit and the three explicit constraints are upheld
+	
+	Test 0: Are sufficient stimuli generated? 
+	Test 1: Are there an equal number of congruent and incongruent stimuli?
+	Test 2: Does no stimuli contain a character present in the previous stimuli?
+	Test 3: Does no sequence of 4 stimuli result in the same challange response?
+	
+	"""
 	sanity = True
 	if len(p) != n:
 		sanity = False 

@@ -54,20 +54,20 @@ var baseTime = new Date(),
 	start,
     newTrialTime = 0,
     focusTime = 0,
-    stimuliTimeOut = 1000,
+    stimuliTimeOut = 1000, // 1000
     StimuliIntervalBaseTime = 0,
     trueStimuliIntervalBaseTime = 50,
  	trueTrialTime = 50,
     falseStimuliIntervalBaseTime = 0,
     falseTrialTime = 0,
-	newTrialTime = 1900,
+	newTrialTime = 1000, // 1900
 	focusTime = 100,
-	stimuliTimeOut = 5000,
+	stimuliTimeOut = 5000, // 5000
 	StimuliIntervalBaseTime = 200,
 	trueStimuliIntervalBaseTime = 150,
 	trueTrialTime = 50,
-	falseStimuliIntervalBaseTime = 1000,
-	falseTrialTime = 500;
+	falseStimuliIntervalBaseTime = 1000, // 1000
+	falseTrialTime = 500; // 500
 
 // Counters
 var slideCounter = 0,
@@ -99,12 +99,13 @@ var trialOrder = [],
 	slides = {
 	  0:[ // L1 Unit
 		"welcome",
-	    "switch-introduction",
-	    "switch-introduction-extended"],
+	    "switch-introduction"
+        ],
 	  1:[ // L1 Unit
 	      [ // L2 Random Order
 	    	["switch-practice-letters-instructions-1","switch-practice-letters-instructions-2"], // L3 VerticalMode
-		    "switch-practice-letters-instructions-example",
+            "switch-practice-letters-instructions-example",
+		    "switch-practice-letters-instructions-hint",
 		    "switch-practice-letters-pre-practice-1",
 		    "trials",
 		    "switch-practice-letters-results-1",
@@ -113,7 +114,8 @@ var trialOrder = [],
 		    "switch-practice-letters-results-2"],
 		  [
     		["switch-practice-numbers-instructions-1","switch-practice-numbers-instructions-2"],
-		    "switch-practice-numbers-instructions-example",
+            "switch-practice-numbers-instructions-example",
+		    "switch-practice-numbers-instructions-hint",
 		    "switch-practice-numbers-pre-practice-1",
 		    "trials",
 		    "switch-practice-numbers-results-1",

@@ -41,14 +41,11 @@ upon the generation of stimuli:
 1. Provide an equal amount of congruent & incongruent combinations
 2. The same character may not appear on two successive trials
 3. The same response (i.e., capitalized, non-capitalized, <5, or >5) may not 
-   appear on more than 4 successive trials.
+   appear on more than 3 successive trials.
 
 """
 
-CAP = ['R','B','A','F']
-NCP = ['e','d','h','t']
-LT5 = ['1','2','3','4']
-GT5 = ['6','7','8','9']
+CAP,NCP,LT5,GT5 = ['R','B','A','F'],['e','d','h','t'],['1','2','3','4'],['6','7','8','9']
 
 def genStims(n):
 	""" Generate an equal number of congruent and incongruent stimuli."""
@@ -68,7 +65,7 @@ def newStim(congruent, capitalized):
 def shuffleSeq(s, n):
 	""" Randomise a given sequence of character pairs in which no character
 	pair repeats a character from the previous pair, and in which no sequence
-	of character pairs results in warranting the same response to the 
+	of 4 character pairs results in warranting the same response to the 
 	classification challange. 
 
 	In other words, no four stimuli should contain challanges for which 
@@ -77,47 +74,44 @@ def shuffleSeq(s, n):
 				  or 
 		'<5' and 'non-capitalized' 
 
-	are the appropriate responses.
-	
+	are the appropriate responses. 
+
+	N.B. The focus challange of the stimuli always come in pairs.	
 	"""
 	shuffle(s)
 	p = [s.pop()]
 	for x in s:
 		p.append(sim(x, p[-1]) if (x[0] in p[-1] or x[1] in p[-1]) else x)
 		if len(p) > 3:
-			if isStreak(p[-4:]):
+			if not (len(p) % 2) and isStreak(p[-4:]):
 				p = correctStreak(p)
-				if len(p) > 4 and isStreak(p[-4:]):
-					print 'STREAK  0', p[-4:]
-				if len(p) > 5 and isStreak(p[-5:-1]):
-					print 'STREAK -1', p[-5:-1]
-				if len(p) > 6 and isStreak(p[-6:-2]):
-					print 'STREAK -2', p[-6:-2]
-				if len(p) > 7 and isStreak(p[-7:-3]):
-					print 'STREAK -3', p[-7:-3]
+	p = repairSequence(p)
 	testSanity(p, n)
 
-def correctStreak(p):
-	return p
+def sim(orig, prev, next='!!'):
+	"""Two subsequent stimuli have characters in common. Based on the typeset of
+	orig generate and return a stimuli for which this is not the case. If the 
+	next parameter is defined, make sure that the stimuli also does not have any
+	characters in common with it. Next defaults to '!!', neither character are 
+	used in the study.
+	"""
+	x, y = orig[0], orig[1]
+	while x == prev[0] or x == next[0]:
+		x = choice([NCP,CAP][isCaps(orig[0])])
+	while y == prev[1] or y == next[1]:
+		y = choice([LT5,GT5][isGT5(orig[1])])
+	return x + y
 
 def isStreak(s):
 	""" Test whether the 4 provided stimuli may form a streak of the same response"""
-	a = isTypeSet(s[0][0],s[1][0])
-	b = isTypeSet(s[2][0],s[3][0])
-	c = isTypeSet(s[0][1],s[1][1])
-	d = isTypeSet(s[2][1],s[3][1])
+	a, b, c, d = isType(s[0][0],s[1][0]), isType(s[2][0],s[3][0]), \
+				 isType(s[0][1],s[1][1]), isType(s[2][1],s[3][1])
 	if (a % 2 and a == b) or (a % 2 and a == d) or \
 	   (c % 2 and c == b) or (c % 2 and c == d):
 		return 1
-	# elif isLeft(s[0][0]) == isLeft(s[1][1]) == isLeft(s[2][1]) == isLeft(s[3][0]):
-		# print s
-		# return 2
-	# elif  (isLeft(s[0][1]) == isLeft(s[1][0]) == isLeft(s[2][0]) == isLeft(s[3][1])):
-		# print s
-		# return 3
 	return 0
 
-def isTypeSet(a,b):
+def isType(a,b):
 	""" Return the typeset number of the stimuli"""
 	return [[3,2],[0,1]][isLeft(a)][isLeft(b)]
 
@@ -125,24 +119,80 @@ def isLeft(s):
 	""" Return 1 if 'left' is the correct response for the stimuli, else 0"""
 	return (1 if s in NCP + LT5 else 0)
 
-def sim(s, p):
-	"""Two subsequent stimuli have characters in common. Generate and return a 
-	stimuli for which this is not the case.
+def correctStreak(p):
+	""" Attempt 3 strategies in order of likely success, and keep track of the 
+	'cost' of correcting the streak in terms of the additional incongurent or
+	congruent stimuli this added to the sequence.
+
+	Strategies with succes ratio:
+		
+	1. Invert response type, but maintain (in)congruence 		   --->    14/21
+	2. Invert (in)congruence, direction based on 'left' response   --->   3.5/21
+	3. Invert (in)congruence, direction based on 'right' response  --->   3.5/21
 
 	"""
-	x, y = s[0], s[1]
-	while x == p[0]:
-		x = choice([NCP,CAP][isCaps(s[0])])
-	while y == p[1]:
-		y = choice([LT5,GT5][isGT5(s[1])])
-	return x + y
+	global CON, ICN
+	p[-1] = flip(p[-2:]) 											# Strategy 1
+	if isStreak(p[-4:]):											
+		p[-1] = flip(p[-2:])
+		if isCongruent(p[-1]):
+			CON += 1
+		else:
+			ICN += 1
+		p[-1] = turn(p[-2:])										# Strategy 2
+	if isStreak(p[-4:]):											
+		p[-1] = flip(p[-2:])										# Strategy 3
+	return p
 
-def flip(s):
+
+def flip(stims):
 	""" Change stimuli into a combination that abides by the type constrains, but
 	does not require the same response, thereby upholding the first constraint, 
 	without sacrificing the third."""
-	return newStim(int(isCaps(s[0])==isGT5(s[1])),int(isCaps(s[0])==0))
-	
+	while True:
+		stim = newStim(isCongruent(stims[1]), 0 if isCaps(stims[1][0]) else 1)
+		if not stim[0] in stims[0] and not stim[1] in stims[0]: break
+	return stim
+
+def turn(stims):
+	while True:
+		stim = newStim(abs(isCongruent(stims[1])-1), isCaps(stims[1][0]))
+		if not stim[0] in stims[0] and not stim[0] in stims[0]: break
+	return stim
+
+def repairSequence(sequence):
+	"""Setup repair with length and direction of the repairs"""
+	repairs = ICN - CON
+	if repairs > 0:
+		r = repair(sequence, 0, repairs)
+	elif repairs < 0:
+		r = repair(sequence, 1, repairs)
+	return r
+
+def repair(seq, congruence, repairs):
+	"""Iterate through the sequence of stimuli and find stimuli which can change
+	their (in)congruence without resulting in a response streak. When found,
+	invert the (in)congruence of that stimuli. Repeat until an even number of 
+	congruent and incongruent stimuli remain.
+
+	"""
+	for r in range(repairs):
+		try:
+			for i in range(3, len(seq), 2):
+				if isCongruent(seq[i]) == congruence:
+					continue
+				temp = seq[i-3:i] + [turn(seq[i-1:i+1])] + seq[i+1:i+4]
+				if temp[3][0] in temp[4] or temp[3][1] in temp[4]:
+					temp[3] = sim(temp[3],temp[2],temp[4])
+				if isStreak(temp[:4]) or isStreak(temp[-4:]):
+					continue
+				else:
+					seq[i] = temp[3]
+					break
+		except IndexError:
+			pass
+	return seq
+		
 def isCaps(s):
 	""" Return 1 if character is capitalized, else 0"""
 	return (1 if s in CAP else 0)
@@ -156,10 +206,12 @@ def isCongruent(s):
 	return (1 if (s[0] in CAP and s[1] in GT5) or \
 		   (s[0] in NCP and s[1] in LT5) else 0)
 
-
 def testSanity(p, n):
 	""" Testing that both implicit and the three explicit constraints are upheld
 	
+	If one of the tests fails, the script runs again until a succesful set 
+	matching all conditions is found.
+
 	Test 0: Are sufficient stimuli generated? 
 	Test 1: Are there an equal number of congruent and incongruent stimuli?
 	Test 2: Does no stimuli contain a character present in the previous stimuli?
@@ -168,28 +220,37 @@ def testSanity(p, n):
 	"""
 	sanity = True
 	congruent = 0
-	if len(p) != n:
+	if len(p) != n:														# Test 0
 		sanity = False 
-		print 'ERROR 0: Missing Values', len(p), 'out of', str(n)
-	for s in p:
+		print 'FAILED TEST 0: Missing Values', len(p), 'out of', str(n)
+	for s in p:															# Test 1
 		if isCongruent(s):
 			congruent += 1
 	if len(p) / 2 != congruent:
-		print 'ERROR 1: There are', str(congruent), 'congruent but', \
+		sanity = False 
+		print 'FAILED TEST 1: There are', str(congruent), 'congruent but', \
 			   str(len(p)-congruent),'incongruent stimuli'
-	for i in range(1, len(p)):
+	for i in range(1, len(p)):											# Test 2
 		if (p[i][0] in p[i-1] or p[i][1] in p[i-1]):
 			sanity = False 
-			print 'ERROR 2:', p[i], '-->', p[i-1], 'at', str(i)
-	for i  in range(3, len(p)) :
+			print 'FAILED TEST 2:', p[i], '-->', p[i-1], 'at', str(i)
+	conflictCount = 0
+	for i  in range(3, len(p), 2) :										# Test 3
 		if isStreak(p[i-3:i+1]):
+			conflictCount += 1
 			sanity = False 
-			print 'ERROR 3:', p[i-4], p[i-3], p[i-2], p[i-1], p[i], \
-			  'RESPONSE STREAK', 'type', str(isStreak(p[i-3:i+1])), 'at', str(i)
-	if sanity:	
+			print 'FAILED TEST 3:', i-2, ':', p[i-3], p[i-2], p[i-1], p[i], \
+			  'RESPONSE STREAK at', str(i+1)
+	if sanity:
+		print 'SUCCESFUL RUN - ALL CONDITIONS MET:'	
 		print p
-	# else:
-		# genStims(464)
+	else:
+		print 'RUNNING AGAIN ...'	
+		global CON, ICN
+		CON, ICN = 0, 0
+		genStims(464)
 
 if __name__ == '__main__':
+	global CON, ICN
+	CON, ICN = 0, 0
 	genStims(464)

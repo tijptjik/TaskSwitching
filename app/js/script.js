@@ -419,6 +419,7 @@ function populateScore(){
     else if (mval > 93) { msg = correctAdvice } 
     else { msg = accuracyAdvice }
     $('.' + slideOrder[slideCounter] + ' .validityAbsoluteResult').html(val.toFixed(0))
+    $('.' + slideOrder[slideCounter] + ' .validityAbsoluteResultDual').html(sval.toFixed(0))
     $('.' + slideOrder[slideCounter] + ' .validityRelativeResult').html(mval.toFixed(0))
     $('.' + slideOrder[slideCounter] + ' .responseTimeResult').html(mrt.toFixed(0))
     $('.' + slideOrder[slideCounter] + ' .adviceResult').html(msg)
@@ -595,19 +596,12 @@ function incorrectSlideInterval(i){
 
 function responseFeedback(i){
     if (trialOrder[blockCounter][0]){
-        if ($('.aid-keys').is(":visible") && userData['data'][userData['data'].length-1]['validity']){
+        if (!trialOrder[blockCounter][5] && userData['data'][userData['data'].length-1]['validity']){
             if (stimPriority){ 
                 $('#notice').html(correctResponse).css('color','green') 
             } else { 
                 $('#notice').append('<span> / </span><span style="color:green">' + correctResponse + '</span>') 
                 correctSlideInterval(i)
-            }
-        } else if ($('.aid-keys').is(":visible")){
-            if (stimPriority){
-                $('#notice').html(incorrectResponse).css('color','red') 
-            } else { 
-                $('#notice').append('<span> / </span><span style="color:red">' + incorrectResponse + '</span>')
-            incorrectSlideInterval(i)
             }
         } else if (!userData['data'][userData['data'].length-1]['validity']){
             if (stimPriority){
@@ -620,7 +614,7 @@ function responseFeedback(i){
             if (stimPriority){} else {slideInterval(i)}
         }
     } else {
-        if ($('.aid-keys').is(":visible") && userData['data'][userData['data'].length-1]['validity']) { 
+        if (!trialOrder[blockCounter][5] && userData['data'][userData['data'].length-1]['validity']) { 
             $('#notice').html(correctResponse).css('color','green')
                correctSlideInterval(i)
         } else if (!userData['data'][userData['data'].length-1]['validity']){ 
@@ -739,12 +733,12 @@ function removeSlide(){ // Remove slides which merely functioned to inform the i
 		verticalMode = ($.urlParam('instructions') == 'vertical') ? true : false
 		session = $.urlParam('session')
 	 	initSlides()
-	 	$('.' + slides[0][0]).show() // Activate first slide
+	 	// $('.' + slides[0][0]).show() // Activate first slide
 	// Dual Task Test Settings 
-	 	// $('.' + slides[0][45]).show() // Activate first slide
-	 	// slideCounter = 45
-	 	// trialCounter = 320
-	 	// blockCounter = 12
+	 	$('.' + slides[0][46]).show() // Activate first slide
+	 	slideCounter = 46
+	 	trialCounter = 320
+	 	blockCounter = 12
 	} else {
 		$('.start').show() // Activate configuration slide
 		$('#setMode').click(function(){ 

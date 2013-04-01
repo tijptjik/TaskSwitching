@@ -371,10 +371,10 @@ function setupAidModule(current){
 		$('#hints-keys').show();
 		$('.aid-keys').show();
 		if (current[0] || current[2]){
-			$('#aid-keys-left').html('Kleine letter / Kleiner dan 5')
-			$('#aid-keys-right').html('Hoofdletter / Groter dan 5 ')
+			$('#aid-keys-left').html('<b>V</b>: Kleine letter <br> Kleiner dan 5')
+			$('#aid-keys-right').html('<b>N</b>: Hoofdletter <br> Groter dan 5 ')
 		} else {
-			var aidText = (current[4]) ? ['Kleiner dan 5','Groter dan 5'] : ['Kleine letter','Hoofdletter'];
+			var aidText = (current[4]) ? ['<b>V</b>: Kleiner dan 5','<b>N</b>: Groter dan 5'] : ['<b>V</b>: Kleine letter','<b>N</b>: Hoofdletter'];
 			$('#aid-keys-left').html(aidText[0])
 			$('#aid-keys-right').html(aidText[1])
 		}
@@ -694,16 +694,16 @@ function insertSlide(){			// Insert custom slides that do not fit logically into
 		var index = slideOrder.indexOf('empty-slide-hack'); 
 		slideOrder.splice(index, 1)
 	}
-	slideOrder.splice(19, 0, "switch-intermezzo")
-	slideOrder.splice(23, 0, "switch-practice-both-1-results")
-	slideOrder.splice(26, 0, "switch-practice-both-2-results")
+	slideOrder.splice(20, 0, "switch-intermezzo")
+	slideOrder.splice(24, 0, "switch-practice-both-1-results")
+	slideOrder.splice(27, 0, "switch-practice-both-2-results")
 	if (!dualTaskMode){
 		slideOrder.push("switch-final") 			// Non-Dual-Task Final Slide
 	} else {
-		slideOrder.splice(46, 0, "switch-end")
-		slideOrder.splice(59, 0, "dual-real-1-results")
-		slideOrder.splice(60, 0, "dual-intermezzo")
-		slideOrder.splice(73, 0, "dual-real-2-results")
+		slideOrder.splice(47, 0, "switch-end")
+		slideOrder.splice(60, 0, "dual-real-1-results")
+		slideOrder.splice(61, 0, "dual-intermezzo")
+		slideOrder.splice(74, 0, "dual-real-2-results")
 		slideOrder.push("dualtask-final") 			// Dual-Task Final Slide
 	}
 	initTrials()

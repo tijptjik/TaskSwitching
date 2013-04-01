@@ -88,20 +88,20 @@ def shuffleSeq(s, n):
 			if isStreak(p[-4:]):
 				p = correctStreak(p)
 				if len(p) > 4 and isStreak(p[-4:]):
-					print 'ERROR 0', p[-4:]
+					print 'STREAK  0', p[-4:]
 				if len(p) > 5 and isStreak(p[-5:-1]):
-					print 'ERROR 1', p[-5:-1]
+					print 'STREAK -1', p[-5:-1]
 				if len(p) > 6 and isStreak(p[-6:-2]):
-					print 'ERROR 2', p[-6:-2]
+					print 'STREAK -2', p[-6:-2]
 				if len(p) > 7 and isStreak(p[-7:-3]):
-					print 'ERROR 3', p[-7:-3]
+					print 'STREAK -3', p[-7:-3]
 	testSanity(p, n)
 
 def correctStreak(p):
 	return p
 
 def isStreak(s):
-	""" Test whether the 4 provided stimuli form a streak of the same response"""
+	""" Test whether the 4 provided stimuli may form a streak of the same response"""
 	a = isTypeSet(s[0][0],s[1][0])
 	b = isTypeSet(s[2][0],s[3][0])
 	c = isTypeSet(s[0][1],s[1][1])
@@ -134,7 +134,7 @@ def sim(s, p):
 	while x == p[0]:
 		x = choice([NCP,CAP][isCaps(s[0])])
 	while y == p[1]:
-		y = choice([GT5,LT5][isGT5(s[1])])
+		y = choice([LT5,GT5][isGT5(s[1])])
 	return x + y
 
 def flip(s):
@@ -145,11 +145,11 @@ def flip(s):
 	
 def isCaps(s):
 	""" Return 1 if character is capitalized, else 0"""
-	return (1 if s in "RBAF" else 0)
+	return (1 if s in CAP else 0)
 
 def isGT5(s):
 	""" Return 1 if character is greater than five, else 0"""
-	return (1 if s in "6789" else 0)
+	return (1 if s in GT5 else 0)
 
 def isCongruent(s):
 	""" Return 1 if stimuli is congruent, else 0"""

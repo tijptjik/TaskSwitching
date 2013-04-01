@@ -61,9 +61,9 @@ def genStims(n):
 
 def newStim(congruent, capitalized):
 	""" Return a random stimuli abiding by the type constraints."""
-	raw = [[[NCP,GT5],CAP,LT5]], [[NCP,LT5],[CAP,GT5]]]
-	return choice(raw[congruent][capitalized][0]) + \
-		   str(choice(raw[congruent][capitalized][1]));
+	options = [[[NCP,GT5],[CAP,LT5]], [[NCP,LT5],[CAP,GT5]]]
+	return choice(options[congruent][capitalized][0]) + \
+		   choice(options[congruent][capitalized][1]);
 
 def shuffleSeq(s, n):
 	""" Randomise a given sequence of character pairs in which no character
@@ -86,7 +86,7 @@ def shuffleSeq(s, n):
 		p.append(sim(x, p[-1]) if (x[0] in p[-1] or x[1] in p[-1]) else x)
 		if len(p) > 3:
 			if isStreak(p[-4:]):
-				p = chomp(p)
+				p = correctStreak(p)
 				if len(p) > 4 and isStreak(p[-4:]):
 					print 'ERROR 0', p[-4:]
 				if len(p) > 5 and isStreak(p[-5:-1]):
@@ -96,6 +96,9 @@ def shuffleSeq(s, n):
 				if len(p) > 7 and isStreak(p[-7:-3]):
 					print 'ERROR 3', p[-7:-3]
 	testSanity(p, n)
+
+def correctStreak(p):
+	return p
 
 def isStreak(s):
 	""" Test whether the 4 provided stimuli form a streak of the same response"""
@@ -119,18 +122,18 @@ def isTypeSet(a,b):
 	return [[3,2],[0,1]][isLeft(a)][isLeft(b)]
 
 def isLeft(s):
-	""" Return 1 if 'left' is the correct response for the stimuli"""
+	""" Return 1 if 'left' is the correct response for the stimuli, else 0"""
 	return (1 if s in NCP + LT5 else 0)
 
-def sim(s, p, r='Q0'):
+def sim(s, p):
 	"""Two subsequent stimuli have characters in common. Generate and return a 
 	stimuli for which this is not the case.
 
 	"""
 	x, y = s[0], s[1]
-	while x == p[0] or x == r[0]:
+	while x == p[0]:
 		x = choice([NCP,CAP][isCaps(s[0])])
-	while y == p[1] or x == r[1]:
+	while y == p[1]:
 		y = choice([GT5,LT5][isGT5(s[1])])
 	return x + y
 
@@ -141,12 +144,18 @@ def flip(s):
 	return newStim(int(isCaps(s[0])==isGT5(s[1])),int(isCaps(s[0])==0))
 	
 def isCaps(s):
-	""" Return 1 if character is capitalized"""
+	""" Return 1 if character is capitalized, else 0"""
 	return (1 if s in "RBAF" else 0)
 
 def isGT5(s):
-	""" Return 1 if character is greater than five"""
+	""" Return 1 if character is greater than five, else 0"""
 	return (1 if s in "6789" else 0)
+
+def isCongruent(s):
+	""" Return 1 if stimuli is congruent, else 0"""
+	return (1 if (s[0] in CAP and s[1] in GT5) or \
+		   (s[0] in NCP and s[1] in LT5) else 0)
+
 
 def testSanity(p, n):
 	""" Testing that both implicit and the three explicit constraints are upheld
@@ -158,17 +167,24 @@ def testSanity(p, n):
 	
 	"""
 	sanity = True
+	congruent = 0
 	if len(p) != n:
 		sanity = False 
-		print 'ERROR TYPE 0: Missing Values', len(p), 'out of', str(n)
+		print 'ERROR 0: Missing Values', len(p), 'out of', str(n)
+	for s in p:
+		if isCongruent(s):
+			congruent += 1
+	if len(p) / 2 != congruent:
+		print 'ERROR 1: There are', str(congruent), 'congruent but', \
+			   str(len(p)-congruent),'incongruent stimuli'
 	for i in range(1, len(p)):
 		if (p[i][0] in p[i-1] or p[i][1] in p[i-1]):
 			sanity = False 
-			print 'ERROR TYPE 2:', p[i], '-->', p[i-1], 'at', str(i)
+			print 'ERROR 2:', p[i], '-->', p[i-1], 'at', str(i)
 	for i  in range(3, len(p)) :
 		if isStreak(p[i-3:i+1]):
 			sanity = False 
-			print 'ERROR TYPE 3:', p[i-4], p[i-3], p[i-2], p[i-1], p[i], \
+			print 'ERROR 3:', p[i-4], p[i-3], p[i-2], p[i-1], p[i], \
 			  'RESPONSE STREAK', 'type', str(isStreak(p[i-3:i+1])), 'at', str(i)
 	if sanity:	
 		print p

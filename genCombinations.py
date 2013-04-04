@@ -62,7 +62,7 @@ def newStim(congruent, capitalized):
 	return choice(options[congruent][capitalized][0]) + \
 		   choice(options[congruent][capitalized][1]);
 
-def shuffleSeq(s, n):
+def shuffleSeq(seq, n):
 	""" Randomise a given sequence of character pairs in which no character
 	pair repeats a character from the previous pair, and in which no sequence
 	of 4 character pairs results in warranting the same response to the 
@@ -78,9 +78,9 @@ def shuffleSeq(s, n):
 
 	N.B. The focus challange of the stimuli always come in pairs.	
 	"""
-	shuffle(s)
-	p = [s.pop()]
-	for x in s:
+	shuffle(seq)
+	p = [seq.pop()]
+	for x in seq:
 		p.append(sim(x, p[-1]) if (x[0] in p[-1] or x[1] in p[-1]) else x)
 		if len(p) > 3:
 			if not (len(p) % 2) and isStreak(p[-4:]):
@@ -157,16 +157,16 @@ def flip(stims):
 def turn(stims):
 	while True:
 		stim = newStim(abs(isCongruent(stims[1])-1), isCaps(stims[1][0]))
-		if not stim[0] in stims[0] and not stim[0] in stims[0]: break
+		if not stim[0] in stims[0] and not stim[1] in stims[0]: break
 	return stim
 
-def repairSequence(sequence):
+def repairSequence(seq):
 	"""Setup repair with length and direction of the repairs"""
 	repairs = ICN - CON
 	if repairs > 0:
-		r = repair(sequence, 0, repairs)
+		r = repair(seq, 0, repairs)
 	elif repairs < 0:
-		r = repair(sequence, 1, repairs)
+		r = repair(seq, 1, repairs)
 	return r
 
 def repair(seq, congruence, repairs):
@@ -181,7 +181,7 @@ def repair(seq, congruence, repairs):
 			for i in range(3, len(seq), 2):
 				if isCongruent(seq[i]) == congruence:
 					continue
-				temp = seq[i-3:i] + [turn(seq[i-1:i+1])] + seq[i+1:i+4]
+				temp = seq[i-3:i] + [turn(seq[i-1:i+1])] + seq[i+1:i+3]
 				if temp[3][0] in temp[4] or temp[3][1] in temp[4]:
 					temp[3] = sim(temp[3],temp[2],temp[4])
 				if isStreak(temp[:4]) or isStreak(temp[-4:]):

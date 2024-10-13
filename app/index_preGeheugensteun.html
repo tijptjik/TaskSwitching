@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title></title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="js/vendor/modernizr.min.js"></script>
+  </head>
+
+  <body>
+  <div class="container" style="margin-top:50px">
+    <article class="start">
+      <h1>Tapass Study</h1>
+      <h4>Settings</h4>
+      <p>Select to turn on mode</p>
+      <input id="verticalMode" class="pull-left" type="checkbox"><label for="verticalMode">Vertical Task</label>
+      <p>Select a session</p>
+      <input type="radio" checked="checked" class="pull-left" name="session" id="session1" value="0"><label for="session1">Session 1</label>
+      <input type="radio" class="pull-left" name="session" id="session2" value="1"><label for="session2">Session 2</label>
+      <input type="radio" class="pull-left" name="session" id="session3" value="2"><label for="session3">Session 3</label>
+      <input type="radio" class="pull-left" name="session" id="session4" value="3"><label for="session4">Session 4</label>
+      <p>This page will be replaced by proper workflow integration once the API - or other solution - has been made available to me</p>
+      <button id="setMode">Start</button>
+    </article>
+    <article class="trials">
+       <table class="box-fields">
+          <tr>
+            <td id="Q1"><span></span></td>
+            <td id="Q2"><span></span></td>
+          </tr>
+          <tr>
+            <td id="Q3"><span></span></td>
+            <td id="Q4"><span></span></td>
+          </tr>
+        </table>
+      <div class="row-fluid">
+        <div id="hints-task">
+            <div id="aid-task-left" class="aid-task"></div>
+            <div id="aid-task-right" class="aid-task"></div>
+          </div>
+        </div>
+        <div id="notice"></div>
+      </div>
+      <div id="hints-keys">
+          <div id="aid-keys-left" class="aid-keys"></div>
+          <div id="aid-keys-right" class="aid-keys"></div>
+        </div>
+      </div>
+    </article>
+    <article class="welcome">
+      <h2>Welkom bij de switch taak. </h2>
+      <p> Deze taak duurt ongeveer 40 minuten.</p>
+      <p>Het is geen makkelijke taak, probeer gewoon zo goed mogelijk uw best te doen. </p>
+      <p>Het is heel belangrijk dat u tijdens deze hele taak uw linker wijsvinger op de "<code>V</code>" knop en uw rechter wijsvinger op de "<code>N</code>" toets op uw toetsenbord heeft.</p>
+      <p>Leg nu uw vingers op deze toesten.</p>
+    <p> class="spacebar">Druk met <u>uw duim</u> op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="switch-introduction">
+      <p>In deze taak doet u straks twee verschillende opdrachten.</p>
+      <ol>
+      <li>Aangeven of een letter een <em>hoofdletter</em> of een <em>kleine letter</em> is.</li>
+      <li>Aangeven of een cijfer <em>hoger</em> of <em>lager dan 5</em> is. </li>
+    </ol>
+    <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-introduction-extended">
+    <p>DEZE SLIDE MAG WEG U krijgt eerst de uitleg van de eerste opdracht. Daarna van de tweede opdracht.</p>
+    <p>U oefent eerst een aantal keer voordat de echte taak begint.</p>
+    </article>
+    <article class="switch-practice-letters-instructions-1">
+      <p>U doet nu de <u>letter</u>opdracht.</p>
+      <p>U ziet straks vier vakken.</p>
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>In één van de vakken komt een letter en een cijfer, bijvoorbeeld “<code>d7</code>”.</p>
+      <p>Als de letter en cijfer in één van de twee <u>bovenste</u> vakken komt, moet u aangeven of de <u>letter</u> een hoofdletter of een kleine letter is.</p>
+      <p>Als het een <em>kleine letter</em> (<code>e, d, h, t</code>) is drukt u op de "<code><b>V</b></code>" toets.</p>
+      <p>Als het een <em>hoofdletter</em> (<code>R, B, A, F</code>) is drukt u op de "<code><b>N</b></code>" toets.</p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="switch-practice-letters-instructions-2">
+      <p>U doet nu de <u>letter</u>opdracht.
+      <p>U ziet straks vier vakken.
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>In één van de vakken komt een letter en een cijfer, bijvoorbeeld “<code>d7</code>”.</p>
+      <p>Als de letter en cijfer in één van de twee <u>rechter</u> vakken komt, moet u aangeven of de <u>letter</u> een hoofdletter of een kleine letter is.</p>
+      <p>Als het een <em>kleine letter</em> (<code>e, d, h, t</code>) is drukt u op de "<code><b>V</b></code>" toets.</p>
+      <p>Als het een <em>hoofdletter</em> (<code>R, B, A, F</code>) is drukt u op de "<code><b>N</b></code>" toets.</p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="switch-practice-letters-instructions-example">
+      <p>Bijvoorbeeld</p>
+
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td>d7</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+
+        <p>Als het een <em>kleine letter</em> is drukt u op de "<code><b>V</b></code>" toets.</p>
+        <p>Als het een <em>hoofdletter</em> is drukt u op de "<code><b>N</b></code>" toets.</p>
+
+        <p>De “<code>d</code>” is een kleine letter dus hier drukt u "<code><b>V</b></code>".</p>
+        <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-letters-instructions-hint">
+      DEZE SLIDE TOEVOEGEN
+      <p>Onderaan in beeld komt een geheugensteun te staan van de betekenis van de toetsen. Als het nodig is kunt u hiernaar kijken. </p>
+      XXXX SHOW GEHEUGENSTEUN
+        <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-letters-pre-practice-1">
+      <p>U oefent nu met de <u>letter</u>opdracht. </p>
+      <p>Heeft u uw linker wijsvinger nog op de "<code><b>V</b></code>" toets en uw rechter wijsvinger op de "<code><b>N</b></code>" toets?</p>
+      <p>U ziet een "<code>+</code>" in het vak waar de eerste letter en cijfer in komt. </p>
+      <p>U moet aangeven of de <u>letter</u> een hoofdletter of een kleine letter is.</p>
+      <p>Als het een <em>kleine letter</em> is drukt u op de "<code><b>V</b></code>" toets.</p>
+      <p>Als het een <em>hoofdletter</em> is drukt u op de "<code><b>N</b></code>" toets.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b> toetsen? Druk op de spatiebalk om te beginnen met de oefening. </p>
+    </article>
+    <article class="switch-practice-letters-results-1">
+      <p>U heeft de eerste oefenronde van de letteropdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed.</p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende oefenronde van de letteropdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+
+    </article>
+    <article class="switch-practice-letters-pre-practice-2">
+    <p>Bij een goed antwoord krijgt u vanaf nu niet meer “<code style="color:green">goed</code>” te zien, u krijgt alleen nog maar te zien wanneer uw antwoord fout was.</p>
+
+    <p>Bij de volgende ronde staat de geheugensteun er niet meer bij.</p>
+    <p>U drukt dus op de "<code><b>V</b></code>" voor een kleine letter en op de "<code><b>N</b></code>" voor een hoofdletter.</p>
+    <br>
+    <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>
+
+    <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="switch-practice-letters-results-2">
+      <p>Heel goed! U heeft de oefenronde van de letteropdracht nu afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende opdracht.</p>
+      <p>Probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+ <article class="switch-practice-numbers-instructions-1">
+      <p>U doet nu de <u>cijfer</u>opdracht.</p>
+      <p>U ziet straks vier vakken.</p>
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>In één van de vakken komt een letter en een cijfer, bijvoorbeeld “<code>d7</code>”.</p>
+      <p>Als de letter en cijfer in één van de twee <u>onderste</u> vakken komt moet u aangeven of het <u>cijfer</u> <em>hoger</em> of <em>lager</em> is dan 5.</p>
+      <p>Als het <em>lager dan 5</em> (<code>1, 2, 3, 4</code>) is drukt u op de "<b>V</b>" toets.
+      <p>Als het <em>hoger dan 5</em> (<code>6, 7, 8, 9</code>) is drukt u op de "<b>N</b>" toets.
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="switch-practice-numbers-instructions-2">
+      <p>U doet nu de <u>cijfer</u>opdracht.
+      <p>U ziet straks vier vakken.
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>In één van de vakken komt een letter en een cijfer, bijvoorbeeld “<code>d7</code>”.</p>
+      <p>Als de letter en cijfer in één van de twee <u>linker</u> vakken komt moet u aangeven of het <u>cijfer</u> <em>hoger</em> of <em>lager</em> is dan 5.
+      <p>Als het <em>lager dan 5</em> (<code>1, 2, 3, 4</code>) is drukt u op de "<b>V</b>" toets.
+      <p>Als het <em>hoger dan 5</em> (<code>6, 7, 8, 9</code>) is drukt u op de "<b>N</b>" toets.
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld.  </p>
+    </article>
+    <article class="switch-practice-numbers-instructions-example">
+      <p>Bijvoorbeeld</p>
+
+        <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>B3</td>
+            <td></td>
+          </tr>
+        </table>
+
+        <p>Als het cijfer <em>lager dan 5</em> is drukt u op de "<code><b>V</b></code>" toets.</p>
+        <p>Als het cijfer <em>hoger dan 5</em> is drukt u op de "<code><b>N</b></code>" toets.</p>
+
+        <p>De “<code>3</code>” is lager dan 5 dus hier drukt u "<code><b>V</b></code>".</p>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="switch-practice-numbers-pre-practice-1">
+      <p>U oefent nu met de <u>cijfer</u>opdracht.</p>
+      <p>Heeft u uw linker wijsvinger nog op de "<code><b>V</b></code>" toets en uw rechter wijsvinger op de "<code><b>N</b></code>" toets?</p>
+      <p>U ziet een "<code>+</code>" in het vak waar de eerste letter en cijfer in komt. </p>
+      <p>U moet beslissen of het cijfer <em>hoger</em> of <em>lager dan 5</em> is.</p>
+      <p>Als het <em>lager dan 5</em> is drukt u op de "<code><b>V</b></code>" toets.</p>
+      <p>Als het <em>hoger dan 5</em> is drukt u op de "<code><b>N</b></code>" toets.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Vingers op de <b>"V"</b> en <b>"N"</b> toetsen? Druk op spatiebalk om te beginnen met de oefening.</p>
+    </article>
+    <article class="switch-practice-numbers-results-1">
+      <p>U heeft de eerste oefenronde van de cijferopdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende oefenronde van de cijferopdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-numbers-pre-practice-2">
+    <p>Bij een goed antwoord krijgt u vanaf nu niet meer “<code style="color:green">goed</code>” te zien, u krijgt alleen nog maar te zien wanneer uw antwoord fout was.</p>
+
+    <p>Bij de volgende ronde staat de geheugensteun er niet meer bij.</p>
+    <p>U drukt dus op de "<code><b>V</b></code>" voor <em>lager dan 5</em> en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em>.</p>
+    <br>
+
+    <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>
+
+    <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="switch-practice-numbers-results-2">
+      <p>Heel goed! U heeft de tweede oefenronde van de cijferopdracht nu afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. <p/>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende opdracht.</p>
+      <p>Probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="switch-intermezzo">
+      <p>U kunt nu een minuut pauzeren.</p>
+      <p class="spacebar">Druk op de spatiebalk als u verder kunt.</p>
+    </article>
+    <article class="switch-practice-both-instructions-1">
+      <p>U oefent nu nog een keer. Eerste de ene opdracht, daarna de andere.</p>
+      <p>Er komt nu niet meer in beeld of het de letter- of de cijferopdracht is.</p>
+      <p>Welke opdracht u moet doen hangt dus af van in welk vak de letter en cijfer komt. </p>
+      <p>Onthoud dus goed: als de letter en cijfer in één van de <u>bovenste</u> vakken komt, let u op de <u>letter</u>;</p>
+      <p>Als de combinatie in één van de <u>onderste</u> vakken komt, let u op het <u>cijfer</u>.</p>
+      <p> Bovenste vakken = letteropdracht</p>
+      <p> Onderste vakken = cijferopdracht</p>
+      <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b>. Bent u er klaar voor? Druk op de spatiebalk om nogmaals te oefenen.</p>
+    </article>
+    <article class="switch-practice-both-instructions-2">
+      <p>U oefent nu nog een keer. Eerste de ene opdracht, daarna de andere.</p>
+      <p>Er komt nu niet meer in beeld of het de letter- of de cijferopdracht is.</p>
+      <p>Welke opdracht u moet doen hangt dus af van in welk vak de letter en cijfer komt. </p>
+      <p>Onthoud dus goed: als de letter en cijfer in één van de <u>rechtse</u> vakken komt, let u op de <u>letter</u>;</p>
+      <p>Als de combinatie in één van de <u>linkse</u> vakken komt, let u op het <u>cijfer</u>.</p>
+      <p> Linker vakken = cijferopdracht                       Rechter vakken = letteropdracht </p>
+      <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b>. Bent u er klaar voor? Druk op de spatiebalk om nogmaals te oefenen.</p>
+    </article>
+     <article class="switch-practice-both-1-results">
+      <p>U heeft één van de twee opdrachten afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende opdracht. Let op! Nu doet u de andere opdracht en dus komt de letter en cijfer in de andere vakken.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Vingers op <b>"V"</b> en <b>"N"</b>. Bent u er klaar voor? Druk op de spatiebalk om nogmaals te oefenen. </p>
+    </article>
+    <article class="switch-practice-both-2-results">
+      <p>Heel goed! U heeft de tweede opdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed.</p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>U kunt nu weer een minuut pauzeren. Daarna volgt een andere opdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Druk op de spatiebalk voor de uitleg. </p>
+    </article>
+    <article class="switch-practice-clock-instructions-1">
+      <p>U <u>combineert</u> nu de twee opdrachten.</p>
+      <p>De letter en cijfer komen nu achtereenvolgens in ieder vak. De "<code>+</code>" geeft aan waar de eerste letter en cijfer komt. Daarna verplaatsen de letter en cijfer met de klok mee naar het volgende vak.</p>
+      <p>Let op: als de letter en cijfer in één van de <u>bovenste</u> vakken komt, let u op de <u>letter</u>;</p>
+      <p>Als de letter en cijfer in één van de <u>onderste</u> vakken komt, let u op het <u>cijfer</u>.</p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="switch-practice-clock-example-1">
+      <div class="row-fluid">
+      <div class="pull-left span6">
+        <p>U ziet bijvoorbeeld eerst:</p>
+         <table class="box-fields-examples">
+            <tr>
+              <td></td>
+              <td>h1</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        <p>hier doet u de letteropdracht (omdat het in de <u>bovenste</u> vakken kwam).</p>
+      </div>
+      <div class="pull-left span6">
+      <p>Daarna ziet u bijvoorbeeld:</p>
+      <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>A3</td>
+          </tr>
+        </table>
+      <p>hier doet u de cijferopdracht (omdat het in de <u>onderste</u> vakken kwam).</p>
+      </div>
+      </div>
+      <br>
+      <br>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-clock-instructions-extended-1">
+    <p>Dus voor zowel <em>lager dan 5</em> als een <em>kleine letter</em> drukt u op "<code><b>V</b></code>".</p>
+    <p>Voor <em>hoger dan 5</em> of een <em>hoofdletter</em> drukt u op "<code><b>N</b></code>".</p>
+    <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-clock-instructions-summary-1">
+      <p>Eerst oefenen.<p>
+
+      <p>Eerst zal een instructie geheugensteun in beeld staan, in het volgende blok zal deze verdwijnen.<p>
+
+      <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>,</b></code>?<p>
+
+      <p>Onthoud: <u>Bovenste</u> vakken = <u>letter</u>opdracht
+                  <u>Onderste</u> vakken = <u>cijfer</u>opdracht</p>
+
+      <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+
+    <article class="switch-practice-clock-instructions-2">
+      <p>U <u>combineert</u> nu de twee opdrachten.</p>
+      <p>De letter en cijfer komen nu achtereenvolgens in ieder vak. De "<code>+</code>" geeft aan waar de eerste letter en cijfer komen. Daarna verplaatsen de letter en cijfer met de klok mee naar het volgende vak.</p>
+      <p>Let op: als de letter en cijfer in één van de <u>rechter</u> vakken komt, let u op de <u>letter</u>;</p>
+      <p>Als de letter en cijfer in één van de <u>linker</u> vakken komt, let u op het <u>cijfer</u>.</p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="switch-practice-clock-example-2">
+      <div class="row-fluid">
+      <div class="pull-left span6">
+      <p>U ziet bijvoorbeeld eerst:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>h1</td>
+          </tr>
+        </table>
+      <p>hier doet u de letteropdracht (omdat het in de <u>rechter</u> vakken kwam).</p>
+      </div>
+      <div class="pull-left span6">
+      <p>Daarna ziet u bijvoorbeeld:</p>
+      <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>A3</td>
+            <td></td>
+          </tr>
+        </table>
+      <p>hier doet u de cijferopdracht (omdat het in de <u>linker</u> vakken kwam).</p>
+      </div>
+      </div>
+      <br>
+      <br>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-clock-instructions-extended-2">
+    <p>Dus voor zowel <em>lager dan 5</em> als een <em>kleine letter</em> drukt u op "<code><b>V</b></code>". </p>
+    <p>Voor <em>hoger dan 5</em> of een <em>hoofdletter</em> drukt u op "<code><b>N</b></code>".</p>
+    <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-practice-clock-instructions-summary-2">
+      <p>Eerst oefenen.<p>
+
+      <p>Eerst zal een instructie geheugensteun in beeld staan, in het volgende blok zal deze verdwijnen.<p>
+
+      <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>,</b></code>"?<p>
+
+      <p>Onthoud: 
+      <u>Linker</u> vakken = <u>cijfer</u>opdracht<p>              <u>Rechter</u> vakken = <u>letter</u>opdracht </p>
+
+      <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+
+     <article class="switch-practice-clock-results-1">
+      <p>U heeft de eerste oefenronde van de gecombineerde opdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende oefenronde van de gecombineerde opdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="switch-practice-clock-pre-2">
+    <p>Bij een goed antwoord krijgt u vanaf nu niet meer “<code style="color:green">goed</code>” te zien, u krijgt alleen nog maar te zien wanneer uw antwoord fout was.</p>
+
+    <p>Bij de volgende ronde staat de geheugensteun er niet meer bij.</p>
+    <p>U drukt dus op de "<code><b>V</b></code>" voor <em>lager dan 5</em> of een <em>kleine letter</em>
+    en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em> of een <em>hoofdletter</em>.</p>
+    <br>
+    <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>
+
+    <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="switch-practice-clock-results-2">
+      <p>Heel goed! U heeft de laatste oefenronde van de gecombineerde opdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>U kunt nu één minuut pauzeren. Daarna volgt de <code>echte opdracht</code>. Deze bestaat uit vier gecombineerde opdrachten.</p>
+      <p>Doet u alstublieft uw best en probeer zo snel mogelijk te antwoorden, maar zonder veel fouten te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="switch-real-instructions-1">
+      <p>U doet nu de <u>echte gecombineerde</u> opdracht. U beslist of het cijfer <em>lager</em> of <em>hoger</em> dan 5 is én of de letter een <em>hoofdletter</em> of <em>kleine letter</em> is.<p>
+      <p>Of u op het cijfer of de letter moet letten hangt nu dus af van waar de cijfer en letter in het scherm komt!<p>
+
+      <p>Onthoud: <u>Bovenste</u> vakken = <u>letter</u>opdracht
+                  <u>Onderste</u> vakken = <u>cijfer</u>opdracht</p>
+
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="switch-real-instructions-2">
+      <p>U doet nu de <u>echte gecombineerde</u> opdrach. U beslist of het cijfer <em>lager</em> of <em>hoger</em> dan 5 is én of de letter een <em>hoofdletter</em> of <em>kleine letter</em> is.<p>
+      <p>Of u op het cijfer of de letter moet letten hangt nu dus af van waar de cijfer en letter in het scherm komt!<p>
+
+      <p>Onthoud: <u>Linker</u> vakken = <u>cijfer</u>opdracht<p>                  <u>Rechter</u> vakken = <u>letter</u> opracht </p>                         
+      
+
+      <p class="spacebar">Druk op de spatiebalk meer uitleg. </p>
+    </article>
+    <article class="switch-real-summary">
+      <p>Druk weer op: </p>
+      <p>"<code><b>V</b></code>" voor een <em>kleine letter</em> of <em>lager dan 5</em></p>
+      <p>"<code><b>N</b></code>" voor een <em>hoofdletter</em> of <em>hoger dan 5</em></p>
+      <p>Doet u alstublieft uw best en probeer zo snel mogelijk te antwoorden, maar zonder veel fouten te maken.</p>
+
+       <p>Let op! U begint meteen met de echte opdracht.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b> toets. Bent u er klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+     <article class="switch-real-results-1">
+      <p>Geweldig! U heeft één van de vier opdrachten afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>U kunt nu een minuut pauzeren. Daarna volgt de volgende opdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b> toets. Bent u er weer klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+     <article class="switch-real-results-2">
+      <p>Geweldig! U heeft twee van de vier opdrachten afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed. </p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>U kunt nu een minuut pauzeren. Daarna volgt de volgende opdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b> toets. Bent u er weer klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+     <article class="switch-real-results-3">
+      <p>Geweldig! U heeft drie van de vier opdrachten afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed.</p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>U kunt nu een minuut pauzeren. Daarna volgt de volgende opdracht.</p>
+      <p>Probeer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b> toets. Bent u er weer klaar voor? Druk dan op de spatiebalk.<p>
+    </article>
+     <article class="switch-real-results-4">
+      <p>Geweldig! U heeft de laatste opdracht afgerond.</p>
+      <p>U had er <code class="validityPracticeResult"></code>% goed.</p>
+      <p>Uw reactietijd was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+        </article>
+    </article>
+    <article class="switch-final">
+      <p>Dit is het einde van deze taak.</p>
+      <p>Vandaag hoeft u niet de taak te doen waar u moet reageren op zowel de letter als het cijfer.</p>
+      <p>Heel erg bedankt voor uw inzet!</p>
+      <p>Druk op <code>ESC</code> om de taak af te sluiten.</p>
+    </article>
+    <article class="switch-end">
+      <p>U gaat nu iets heel anders gaan doen. U kunt eerst een vijf minuten pauze nemen. </p>
+      <p class="spacebar">Druk op de spatiebalk als u verder kunt.</p>
+    </article>
+    <article class="dual-practice-letters-instuctions">
+      <p>U doet nu de twee opdrachten <u>tegelijk</u>.</p>
+      <p>Net zoals bij de vorige taak komt er weer een letter en cijfer in één van de vakken.</P>
+      <p>We vragen u eerst <u>zo snel mogelijk</u> te beslissen of de <code>letter</code> een <em>hoofdletter</em> of een <em>kleine letter</em> is.<p>
+      <p><u>Dáárna</u> beslist u, <u>rustig aan</u>, of het <code>cijfer</code> <em>hoger</em> of <em>lager dan 5</em> is.</p>
+      <p>Druk weer op: </p>
+      <p>"<code><b>V</b></code>" voor een <em>kleine letter</em> of <em>lager dan 5</em></p>
+      <p>"<code><b>N</b></code>" voor een <em>hoofdletter</em> of <em>hoger dan 5</em></p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="dual-practice-letters-example-0">
+      <p>Bijvoorbeeld</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td>e7</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>Eerst doet u de letteropdracht: “<code>e</code>” is een kleine letter dus u drukt <u>zo snel mogelijk</u> op de "<code><b>V</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de cijferopdracht: “<code>7</code>” is hoger dan 5 dus u drukt op "<code><b>N</b></code>". </p>
+      <p>Per letter en cijfer geeft u nu dus twee antwoorden na elkaar.</p>
+      <p class="spacebar">Druk op de spatiebalk voor nog een voorbeeld. </p>
+    </article>
+    <article class="dual-practice-letters-example-1">
+      <p>Nog een voorbeeld:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td>h4</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>U doet weer eerst de letteropdracht: “<code>h</code>” is een kleine letter dus u drukt <u>zo snel mogelijk</u> op de "<code><b>V</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de cijferopdracht: “<code>4</code>” is lager dan 5 dus u drukt nog een keer op "<code><b>V</b></code>". </p>
+      <p>U kunt dus de tijd nemen voor uw tweede antwoord, maar moet uw eerste antwoord zo snel mogelijk geven.</p>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-letters-example-2">
+      <p>Nog een voorbeeld:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>h4</td>
+          </tr>
+        </table>
+      <p>U doet weer eerst de letteropdracht: “<code>h</code>” is een kleine letter dus u drukt <u>zo snel mogelijk</u> op de "<code><b>V</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de cijferopdracht: “<code>4</code>” is lager dan 5 dus u drukt nog een keer op "<code><b>V</b></code>". </p>
+      <p>U kunt dus de tijd nemen voor uw tweede antwoord, maar moet uw eerste antwoord zo snel mogelijk geven.</p>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-letters-pre">
+      <p>Eerst oefenen met de dubbele letteropdracht. Daarna volgt de echte opdracht.</p>
+      <p>Eerst zal een instructie geheugensteun in beeld staan, in het volgende blok zal deze verdwijnen.</p>
+      <p>Er komt weer een "<code>+</code>" in het vak waar de eerste letter en cijfer komen.</p>
+      <p>Druk weer op: </p>
+      <p>"<code><b>V</b></code>" voor een <em>kleine letter</em> of <em>lager dan 5</em></p>
+      <p>"<code><b>N</b></code>" voor een <em>hoofdletter</em> of <em>hoger dan 5</em></p>
+      <br>
+      <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" toets en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>      
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-letters-pre-extended">
+      <p>Zorg er dus voor dat uw <em>eerste</em> antwoord zo snel mogelijk is. Het <em>tweede</em> antwoord hoeft niet zo snel mogelijk te zijn.</p>
+      <p>U reageert <u>eerst op de letter, dáárna op het cijfer</u>.</p>
+      <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-practice-letters-results-1">
+      <p>Heel goed! U heeft de eerste oefenronde van de dubbele letteropdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p>  
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de volgende oefenronde van de dubbele letteropdracht.</p>
+      <p>Probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer bij uw snelle antwoord dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="dual-practice-letters-pre-2">
+    <p>Bij een goed antwoord krijgt u vanaf nu niet meer “<code style="color:green">goed</code>” te zien, u krijgt alleen nog maar te zien wanneer uw antwoord fout was.</p>
+    <p>Ook staat de geheugensteun er niet meer bij.</p>
+    <p>U drukt dus op de "<code><b>V</b></code>" voor <em>lager dan 5</em> of een <em>kleine letter</em>
+    en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em> of een <em>hoofdletter</em>. </p>
+    <p>U reageert <u>eerst op de letter, dáárna op het cijfer</u>.</p>
+    <br>
+    <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>
+    <p class="spacebar">Bent u er weer klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-practice-letters-results-2">
+      <p>Heel goed! U heeft de tweede oefenronde van de dubbele letteropdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p>  
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p>Nu volgt de <code>echte dubbele letter</code>opdracht.</p>
+      <p>Doet u alstublieft uw best en probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer bij uw snelle antwoord dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-real-letters-pre">
+    <p>Druk op de "<code><b>V</b></code>" voor <em>lager dan 5</em> of een <em>kleine letter</em> en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em> of een <em>hoofdletter</em>. </p>
+    <p>U reageert <u>eerst op de letter, dáárna op het cijfer</u>.</p>
+    <br>
+    <p> U begint meteen met de echte opdracht.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b>. Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-real-1-results">
+      <p>Heel goed! U heeft de eerste dubbele opdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p> 
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <br>
+      <p>U kunt een minuut pauze nemen. Daarna volgt de uitleg van de tweede dubbele opdracht. Dit is dan de allerlaatste opdracht van deze taak.</p>
+      <p>Probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="dual-intermezzo">
+      <p>Dit was de eerste dubbel opdracht. Nu komt de tweede dubbel opdracht. Hier is de antwoordvolgorde omgedraaid en komen de letter en cijfer dus in de andere vakken.</p>
+    <p class="spacebar">Druk op de spatiebalk voor de uitleg.</p>
+    </article>
+     <article class="dual-practice-numbers-instuctions">
+      <p>U doet nu de twee opdrachten <u>tegelijk</u>.</p>
+      <p>Zoals bij de vorige taak komt er weer een letter en cijfer in één van de vakken.</P>
+      <p>We vragen u eerst <u>zo snel mogelijk</u> te beslissen of het <code>cijfer</code> <em>hoger</em> of <em>lager</em> dan 5 is.<p>
+      <p><u>Dáárna</u> beslist u, <u>rustig aan</u>, of de <code>letter</code> een <em>hoofdletter</em> of een <em>kleine letter</em> is. </p>
+      <p>Druk weer op: </p>
+      <p>"<code><b>V</b></code>" voor een <em>kleine letter</em> of <em>lager dan 5</em></p>
+      <p>"<code><b>N</b></code>" voor een <em>hoofdletter</em> of <em>hoger dan 5</em></p>
+      <p class="spacebar">Druk op de spatiebalk voor een voorbeeld. </p>
+    </article>
+    <article class="dual-practice-numbers-example-0">
+      <p>Bijvoorbeeld:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>e7</td>
+            <td></td>
+          </tr>
+        </table>
+      <p>U doet eerst de cijferopdracht: “<code>7</code>” is hoger dan 5 dus u drukt <u>zo snel mogelijk</u> op de "<code><b>N</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de letteropdracht: “<code>e</code>” is een kleine letter dus u drukt op "<code><b>V</b></code>". </p>
+      <p>Per letter en cijfer geeft u nu dus twee antwoorden na elkaar.</p>
+      <p class="spacebar">Druk op de spatiebalk voor nog een voorbeeld. </p>
+    </article>
+    <article class="dual-practice-numbers-example-1">
+      <p>Nog een voorbeeld:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>h4</td>
+          </tr>
+        </table>
+      <p>U doet weer eerst de cijferopdracht: “<code>4</code>” is lager dan 5 dus u drukt <u>zo snel mogelijk</u> op de "<code><b>V</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de letteropdracht: “<code>h</code>” is een kleine letter dus drukt u nogmaals op "<code><b>V</b></code>". </p>
+      <p>U kunt dus de tijd nemen voor uw tweede antwoord, maar moet uw eerste antwoord zo snel mogelijk geven.</p>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-numbers-example-2">
+      <p>Nog een voorbeeld:</p>
+       <table class="box-fields-examples">
+          <tr>
+            <td>h4</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <p>U doet weer eerst de cijferopdracht: “<code>4</code>” is lager dan 5 dus u drukt <u>zo snel mogelijk</u> op de "<code><b>V</b></code>" toets.</p>
+      <p>Daarna doet u, rustig aan, de letteropdracht: “<code>h</code>” is een kleine letter dus drukt u nogmaals op "<code><b>V</b></code>". </p>
+      <p>U kunt dus de tijd nemen voor uw tweede antwoord, maar moet uw eerste antwoord zo snel mogelijk geven.</p>
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-numbers-pre">
+      <p>Eerst oefenen met de dubbele cijferopdracht. Daarna volgt de echte opdracht.</p>
+      <p>Eerst zal een instructie geheugensteun in beeld staan, in het volgende blok zal deze verdwijnen.</p>
+      <p>Er komt straks weer een "<code>+</code>" in het vak waar de eerste letter en cijfer komen.</p>
+      <p>Druk weer op: </p>
+      <p>"<code><b>V</b></code>" voor een <em>kleine letter</em> of <em>lager dan 5</em></p>
+      <p>"<code><b>N</b></code>" voor een <em>hoofdletter</em> of <em>hoger dan 5</em></p>
+      <br>
+      <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" toets en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>      
+      <p class="spacebar">Druk op de spatiebalk voor meer uitleg. </p>
+    </article>
+    <article class="dual-practice-numbers-pre-extended">
+      <p>Zorg er dus voor dat uw <em>eerste</em> antwoord zo snel mogelijk is. Het <em>tweede</em> antwoord hoeft niet zo snel mogelijk te zijn.</p>
+      <p>U reageert <u>eerst op het cijfer, dáárna op de letter</u>.</p>
+      <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-practice-numbers-results-1">
+      <p>Heel goed! U heeft de eerste oefenronde van de dubbele cijferopdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p>  
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <br>
+      <p>Nu volgt de volgende oefenronde van de dubbele cijferopdracht.</p>
+      <p>Probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer bij uw snelle antwoord dus <u><span class="advicePracticeResult"></span></u>.</p>  
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="dual-practice-numbers-pre-2">
+    <p>Bij een goed antwoord krijgt u vanaf nu niet meer “<code style="color:green">goed</code>” te zien, u krijgt alleen nog maar te zien wanneer uw antwoord fout was.</p>
+    <p>Ook staat de geheugensteun er niet meer bij.</p>
+    <p>U drukt dus op de "<code><b>V</b></code>" voor <em>lager dan 5</em> of een <em>kleine letter</em> en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em>  of een <em>hoofdletter</em>.</p>
+    <p>U reageert <u>eerst op het cijfer, dáárna op de letter</u>.</p>
+    <br>
+    <p>Ligt uw linker wijsvinger nog op de "<code><b>V</b></code>" en uw rechter wijsvinger op de "<code><b>N</b></code>"?</p>
+    <p class="spacebar">Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-practice-numbers-results-2">
+      <p>Heel goed! U heeft de tweede oefenronde van de dubbele cijferopdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p>  
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <br>
+      <p>Nu volgt de echte dubbele cijferopdracht.</p>
+      <p>Doet u alstublieft uw best en probeer ook hier weer <u>zo snel mogelijk</u> te antwoorden, maar <u>zonder veel fouten</u> te maken.</p>
+      <p>Probeer om er ongeveer 9 van de 10 goed te hebben.</p>
+      <p>Probeer bij uw snelle antwoord dus <u><span class="advicePracticeResult"></span></u>.</p>   
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="dual-real-numbers-pre">
+    <p>Druk op de "<code><b>V</b></code>" voor <em>lager dan 5</em> of een <em>kleine letter</em> en op de "<code><b>N</b></code>" voor <em>hoger dan 5</em> of een <em>hoofdletter</em>. </p>
+    <p>U reageert <u>eerst op het cijfer, dáárna op de letter</u>.</p>
+    <p>U begint meteen met de echte opdracht.</p>
+    <p class="spacebar">Vingers op de <b>"V"</b> en <b>"N"</b>. Bent u er klaar voor? Druk dan op de spatiebalk.</p>
+    </article>
+    <article class="dual-real-2-results">
+      <p>Geweldig! U heeft de allerlaatste opdracht afgerond.</p>
+      <p>Van uw snelle antwoorden waren er <code class="validityPracticeResult"></code> % goed. </p>
+      <p>Van uw tweede antwoorden waren er <code class="validityPracticeResultDual"></code> % goed. </p>  
+      <p>Uw reactietijd voor uw snelle antwoord was: <code class="responseTimePracticeResult"></code> milliseconden.</p>
+      <br>
+      <p class="spacebar">Druk op de spatiebalk om naar de volgende pagina te gaan. </p>
+    </article>
+    <article class="dualtask-final">
+      <p>Dit is het einde van deze taak.</p>
+      <p>Heel erg bedankt voor uw inzet!</p>
+      <p>Druk op <code>ESC</code> om de taak af te sluiten.</p>
+    </article>
+  </div>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+
+    <!-- The scripts listed here will be concatened and minified in script.js -->
+    <!-- build:js js/script.js -->
+    <script src="js/vendor/bootstrap/bootstrap-affix.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-alert.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-button.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-carousel.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-collapse.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-modal.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-tooltip.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-popover.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-tab.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-transition.js"></script>
+    <script src="js/vendor/bootstrap/bootstrap-typeahead.js"></script>
+    <script src="js/vendor/keymaster.js"></script>
+    <script src="js/vendor/queryString.js"></script>
+    <script src="js/vendor/doTimeout.js"></script>
+    <script src="js/script.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-<code class="validityPracticeResult"></code>X-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-<code class="validityPracticeResult"></code>X-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>
